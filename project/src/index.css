@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.skill-card {
+  @apply relative overflow-hidden rounded-xl transition-all duration-300 hover:scale-105;
+}
+
+.skill-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 opacity-0 transition-opacity duration-300;
+}
+
+.skill-card:hover::before {
+  @apply opacity-100;
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-lg;
+}
+
+.section-heading {
+  @apply relative text-4xl font-bold text-gray-900 mb-16 text-center;
+}
+
+.section-heading::after {
+  content: '';
+  @apply absolute left-1/2 -translate-x-1/2 bottom-0 w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500;
+}
